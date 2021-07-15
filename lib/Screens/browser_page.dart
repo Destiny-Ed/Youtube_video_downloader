@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:youtube_downloader/Constants/instertitialAdsView.dart';
 import 'package:youtube_downloader/Screens/home_page.dart';
 
 import '../downloader.dart';
@@ -82,8 +81,6 @@ class _BrowserPageState extends State<BrowserPage> {
 
                   ///Download the video
                   Download().downloadVideo(url!, "$title");
-
-                  loadInterstitialAd();
                 },
                 child: Icon(Icons.download),
               ),

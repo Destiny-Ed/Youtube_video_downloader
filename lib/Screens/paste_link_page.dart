@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
-import 'package:youtube_downloader/Constants/adsView.dart';
-import 'package:youtube_downloader/Constants/instertitialAdsView.dart';
 import 'package:youtube_downloader/downloader.dart';
 import 'package:youtube_downloader/getSharedData.dart';
 
@@ -52,8 +50,6 @@ class _PasteLinkPageState extends State<PasteLinkPage> {
                   ///Download the video
                   Download().downloadVideo(
                       _textController.text.trim(), "Youtube Downloader");
-
-                  loadInterstitialAd();
                 }
               },
               child: Container(
@@ -68,8 +64,6 @@ class _PasteLinkPageState extends State<PasteLinkPage> {
                 ),
               ),
             ),
-
-            BannerAdsView(),
           ],
         ),
       ),
