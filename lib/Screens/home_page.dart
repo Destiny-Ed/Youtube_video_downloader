@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 import 'package:youtube_downloader/Screens/browser_page.dart';
 import 'package:youtube_downloader/Screens/paste_link_page.dart';
 
@@ -61,7 +62,14 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
         elevation: 0,
         backgroundColor: Colors.red,
         title: Text("Youtube downloader"),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.share))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                Share.share(
+                    "Download Youtube Videos for free  https://cutt.ly/6mHXrt9");
+              },
+              icon: Icon(Icons.share))
+        ],
       ),
       body: bodyPages(data)[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
