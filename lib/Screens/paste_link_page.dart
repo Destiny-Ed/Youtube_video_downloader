@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_downloader/downloader.dart';
+import 'package:youtube_downloader/getSharedData.dart';
 
 class PasteLinkPage extends StatefulWidget {
   @override
@@ -8,6 +9,17 @@ class PasteLinkPage extends StatefulWidget {
 
 class _PasteLinkPageState extends State<PasteLinkPage> {
   TextEditingController _textController = TextEditingController();
+
+  @override
+  void initState() {
+    DataClass().sharedData().then((value) {
+      setState(() {
+        _textController.text = "";
+        _textController.text = value;
+      });
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
