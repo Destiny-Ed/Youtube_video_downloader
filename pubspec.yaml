@@ -30,6 +30,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_youtube_downloader: ^0.0.5
   webview_flutter: ^2.0.10
+  video_player: ^2.1.10
+  google_mobile_ads: ^0.13.2
+  share: ^2.0.4
+
 
 dev_dependencies:
   flutter_test:

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:youtube_downloader/Constants/instertitialAdsView.dart';
 import 'package:youtube_downloader/Screens/home_page.dart';
 
 import '../downloader.dart';
 
 class BrowserPage extends StatefulWidget {
+  String? data;
+  BrowserPage({this.data});
   @override
   _BrowserPageState createState() => _BrowserPageState();
 }
@@ -39,7 +42,7 @@ class _BrowserPageState extends State<BrowserPage> {
       },
       child: Scaffold(
         body: WebView(
-          initialUrl: link,
+          initialUrl: widget.data == "" ? link : widget.data,
           javascriptMode: JavascriptMode.unrestricted,
           onWebResourceError: (error) {
             showDialog(
@@ -76,10 +79,11 @@ class _BrowserPageState extends State<BrowserPage> {
                 onPressed: () async {
                   final url = await _controller!.currentUrl();
                   final title = await _controller!.getTitle();
-                  print(title);
 
                   ///Download the video
                   Download().downloadVideo(url!, "$title");
+
+                  loadInterstitialAd();
                 },
                 child: Icon(Icons.download),
               ),
